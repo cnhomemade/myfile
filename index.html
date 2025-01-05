@@ -5,15 +5,62 @@
 body, html {
   height: 100%;
   margin: 0;
-  border: 1 px solid red;
 }
-
+.bg4 {
+	width: 25%;
+	float: left; 
+	/* border: 1px solid red; */
+	
+}
 </style>
 
 <body>
-<div>
-  Exp 
-</div>
+	<div id="an_accordion_awal">
+		<!-- <div class="bg4">Exp</div>
+		<div class="bg4"><span id="user">vvss</span></div>
+		<div class="bg4">Exp</div>
+		<div class="bg4"><span id="user">vvss</span></div> -->
+	</div>
+
+<!-- Script Looping Div -->
+<div id="an_accordion_awal" style="width:50%"></div>
+
+<script>
+var html = '';
+// var text = 'Lorem ipsum dolor sit amet ..';
+// first we generating our html in the loop
+
+for(var i=0 ; i<30 ; i++) {
+	//html += '<div><h3>Section ' + i + '</h3>';
+	//html += '<p>' + text + '</p></div>';
+	html += '<div class="bg4" style="text-align:right;">Exp &nbsp;</div>';
+	html += '<div class="bg4" style="text-align:left;"><span id="user">vvss</span></div>';
+}
+// next we're inserting html into block with ID accordion
+document.getElementById("an_accordion_awal").innerHTML = html;
+
+var elems = document.getElementsByClassName("hello");
+for(var i = 0; i < elems.length; i++) {
+    elems[i].innerHTML = "Hello world!";
+}
+
+</script> 
+	
+<!-- Script Js Load Parameter -->
+<script>
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const userParam = urlParams.get('pageContent');
+const u1 = userParam.substring(0, 2);
+
+// Ganti semua sesuai id
+var elements = document.querySelectorAll('[id="user"]');
+for(var i = 0; i < elements.length; i++) {
+    elements[i].innerHTML = userParam.substring(0, 2) + "/" + userParam.substring(2, 4) + "/" + userParam.substring(4, 8);
+}
+// ganti id individu
+//document.getElementById("user").innerHTML = userParam.substring(0, 2) + "/" + userParam.substring(2, 4) + "/" + userParam.substring(4, 8);
+</script>
 
 </body>
 </html>
